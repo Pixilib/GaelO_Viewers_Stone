@@ -1,5 +1,5 @@
 # OHIF
-FROM node:15.13.0-slim as ohif
+FROM node:15.13 as ohif
 RUN apt-get update -qy && \
     apt-get install -y --no-install-recommends apt-utils\
     git
