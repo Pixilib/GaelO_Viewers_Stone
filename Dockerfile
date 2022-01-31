@@ -1,5 +1,5 @@
 # OHIF
-FROM node:14.18 as ohif
+FROM node:17.4 as ohif
 RUN apt-get update -qy && \
     apt-get install -y --no-install-recommends apt-utils\
     git
