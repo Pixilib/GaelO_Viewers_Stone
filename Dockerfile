@@ -1,6 +1,5 @@
 # OHIF
 FROM node:14.17 as ohif
-ENV PATH /usr/src/app/node_modules/.bin:$PATH
 
 RUN apt-get update -qy && \
     apt-get install -y --no-install-recommends apt-utils\
@@ -10,8 +9,7 @@ RUN apt-get update -qy && \
     g++
 
 WORKDIR /ohif
-RUN git clone https://github.com/OHIF/Viewers.git
-RUN yarn config set workspaces-experimental true
+RUN git clone --depth 1 --branch v4.12.9 https://github.com/OHIF/Viewers.git
 RUN cd Viewers && yarn install && QUICK_BUILD=true PUBLIC_URL=/public/viewer-ohif/ yarn run build
 
 # Stone
