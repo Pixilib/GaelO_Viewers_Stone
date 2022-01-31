@@ -1,5 +1,5 @@
 # OHIF
-FROM node:15.13.0-slim as ohif
+FROM node:14.17 as ohif
 ENV PATH /usr/src/app/node_modules/.bin:$PATH
 
 RUN apt-get update -qy && \
