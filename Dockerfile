@@ -1,5 +1,5 @@
 # OHIF
-FROM node:16.13 as ohif
+FROM node:15.13.0-slim as ohif
 RUN apt-get update -qy && \
     apt-get install -y --no-install-recommends apt-utils\
     git \
@@ -9,6 +9,7 @@ RUN apt-get update -qy && \
 
 WORKDIR /ohif
 RUN git clone https://github.com/OHIF/Viewers.git
+RUN yarn config set workspaces-experimental true
 RUN cd Viewers && yarn install && QUICK_BUILD=true PUBLIC_URL=/public/viewer-ohif/ yarn run build
 
 # Stone
