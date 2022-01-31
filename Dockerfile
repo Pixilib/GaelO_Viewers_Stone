@@ -2,7 +2,11 @@
 FROM node:16.13 as ohif
 RUN apt-get update -qy && \
     apt-get install -y --no-install-recommends apt-utils\
-    git
+    git \
+    python \
+    make \
+    g++
+
 WORKDIR /ohif
 RUN git clone https://github.com/OHIF/Viewers.git
 RUN cd Viewers && yarn install && QUICK_BUILD=true PUBLIC_URL=/public/viewer-ohif/ yarn run build
