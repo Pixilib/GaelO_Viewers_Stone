@@ -10,7 +10,7 @@ RUN apt-get update -qy && \
 
 WORKDIR /ohif
 RUN git clone --depth 1 --branch @ohif/viewer@4.12.9 https://github.com/OHIF/Viewers.git
-RUN cd Viewers && yarn install && QUICK_BUILD=true PUBLIC_URL=/public/viewer-ohif/ yarn run build
+RUN cd Viewers && yarn install && QUICK_BUILD=true PUBLIC_URL=/viewer-ohif/ yarn run build
 
 # Stone
 FROM alpine as stone
