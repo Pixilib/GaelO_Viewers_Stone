@@ -20,7 +20,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: ghcr.io/pixilib/gaelo-viewers
+          images: ghcr.io/pixilib/gaelo-viewers-stone
           tags: |
             type=ref,event=tag
             latest
