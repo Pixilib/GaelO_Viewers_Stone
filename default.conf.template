@@ -1,7 +1,7 @@
 server {
-    listen       80;
+    server_name ${NGINX_SERVER_NAME};
+    listen ${NGINX_PORT};
     server_tokens off;
-    server_name  _;
     root /usr/share/nginx/html;
 
     add_header X-Content-Type-Options "nosniff" always;
