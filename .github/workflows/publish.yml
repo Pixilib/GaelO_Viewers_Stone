@@ -30,12 +30,12 @@ jobs:
       - name: Download stone
         run: wget https://lsb.orthanc-server.com/stone-webviewer/2.6/wasm-binaries.zip
 
-      - run: mkdir /stone
-      - run: unzip wasm-binaries.zip -d /stone
+      - run: mkdir stone
+      - run: unzip wasm-binaries.zip -d ./stone
 
-      - run: cp ./public/viewers/Stone/configuration.json /stone/wasm-binaries/StoneWebViewer
+      - run: cp ./public/viewers/Stone/configuration.json ./stone/wasm-binaries/StoneWebViewer
 
-      - run: ls /stone/wasm-binaries/StoneWebViewer
+      - run: ls ./stone/wasm-binaries/StoneWebViewer
 
       - name: Login to github registery
         uses: docker/login-action@v2
