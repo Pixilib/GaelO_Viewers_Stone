@@ -1,21 +1,20 @@
-name: 'publish'
+name: "publish"
 
 on:
   push:
     branches:
       - main
     tags:
-      - '*'
+      - "*"
 
 jobs:
   build:
-    name: 'Build and publish'
+    name: "Build and publish"
     runs-on: ubuntu-latest
     steps:
-    
-      - name: 'Build checkout'
+      - name: "Build checkout"
         uses: actions/checkout@v3
-  
+
       - name: Docker meta
         id: meta
         uses: docker/metadata-action@v4
@@ -24,17 +23,27 @@ jobs:
           tags: |
             type=ref,event=tag
             latest
-            
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
+
+      - name: Download stone
+        run: wget https://lsb.orthanc-server.com/stone-webviewer/2.6/wasm-binaries.zip
+
+      - run: mkdir /stone
+      - run: unzip wasm-binaries.zip -d /stone
+
+      - run: cp ./public/viewers/Stone/configuration.json /stone/wasm-binaries/StoneWebViewer
+
+      - run: ls /stone/wasm-binaries/StoneWebViewer
 
       - name: Login to github registery
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
-          username: 'salimkanoun'
+          username: "salimkanoun"
           password: ${{ secrets.GITHUB_TOKEN }}
-          
+
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
