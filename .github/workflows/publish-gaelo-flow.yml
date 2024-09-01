@@ -28,7 +28,7 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Download stone
-        run: wget https://orthanc.uclouvain.be/downloads/linux-standard-base/stone-web-viewer/2.2/wasm-binaries.zip
+        run: wget https://orthanc.uclouvain.be/downloads/linux-standard-base/stone-web-viewer/2.6/wasm-binaries.zip
 
       - run: mkdir stone
       - run: unzip wasm-binaries.zip -d ./stone
