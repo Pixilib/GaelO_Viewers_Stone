@@ -68,7 +68,7 @@
      * for mammography. Setting this parameter to zero will disable
      * the cache, which should only be done for testing.
      **/
-    "DicomCacheSize" : 512
+    "DicomCacheSize" : 512,
 
    /**
      * The following parameter can be set if running the Stone Web
