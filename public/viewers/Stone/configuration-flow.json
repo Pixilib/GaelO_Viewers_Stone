@@ -125,11 +125,8 @@
     /**
      * HTTP headers to be set in each request to the DICOMweb server.
      * Note that the value of the headers can be taken from the
-     * environment variables.
+     * environment variables. ex "Authorization" : "Bearer ${USER}"
      **/
-    "DicomWebHttpHeaders" : {
-      /* "Authorization" : "Bearer ${USER}" */
-    }
-    
+    "DicomWebHttpHeaders" : { }
   }
 }
